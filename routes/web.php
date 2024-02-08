@@ -18,4 +18,4 @@ Route::get('/', function () {
     return view('inicio');
 })->name('Inicio');
 
-Route::resource('posts',PostController::class)->only(['index','show','create','edit']);
+Route::resource('posts',PostController::class)->only(['index','show','create','edit','delete']);

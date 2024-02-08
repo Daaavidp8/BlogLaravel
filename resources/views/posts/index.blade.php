@@ -14,9 +14,14 @@
                         <div class="card-body">
                             <h2 class="card-title">{{ $post->titulo }}</h2>
                             <p class="card-text">{{ $post->contenido }}</p>
-                            <p class="card-text">{{ $post->usuario->login }}</p>
+                            <p class="card-text">({{ $post->usuario->login }})</p>
                             <a href="{{ route('posts.show', $post->id) }}" class="btn btn-primary">Mostrar post</a>
-                        </div>
+                            <form action="{{route('posts.destroy', $post->id)}}" method="post">
+                                @method('DELETE')
+                                @csrf
+                                <button type="submit" class="btn btn-danger">Borrar Post</button>
+                            </form>
+                            </div>
                     </div>
                 </div>
             @empty
